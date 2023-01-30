@@ -2,11 +2,13 @@ module magic-eight-ball
 
 go 1.17
 
-require github.com/gin-gonic/gin v1.7.7
+require (
+	github.com/dimiro1/banner v1.1.0
+	github.com/gin-gonic/gin v1.7.7
+)
 
 require (
 	github.com/common-nighthawk/go-figure v0.0.0-20200609044655-c4b36f998cf2 // indirect
-	github.com/dimiro1/banner v1.1.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect

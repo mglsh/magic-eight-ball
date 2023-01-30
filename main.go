@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	_ "github.com/dimiro1/banner/autoload"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -42,11 +43,13 @@ func main() {
 	router := gin.Default()
 	router.GET("/answers", getAllAnswers)
 	router.GET("/answer", getRandomAnswer)
+	router.GET("/", getTest)
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
+
 	if err := router.Run(":" + port); err != nil {
 		log.Panicf("error: %s", err)
 	}
@@ -59,4 +62,10 @@ func getAllAnswers(c *gin.Context) {
 func getRandomAnswer(c *gin.Context) {
 	rand.Seed(time.Now().Unix())
 	c.IndentedJSON(http.StatusOK, responses[rand.Intn(len(responses))])
+}
+
+func getTest(c *gin.Context) {
+	rand.Seed(time.Now().Unix())
+	fmt.Println()
+	c.IndentedJSON(http.StatusOK, "fgh")
 }
