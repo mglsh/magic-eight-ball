@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	_ "github.com/dimiro1/banner/autoload"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -65,7 +64,5 @@ func getRandomAnswer(c *gin.Context) {
 }
 
 func getTest(c *gin.Context) {
-	rand.Seed(time.Now().Unix())
-	fmt.Println()
 	c.IndentedJSON(http.StatusOK, "fgh")
 }
