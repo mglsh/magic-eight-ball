@@ -10,6 +10,10 @@ import (
 	"time"
 )
 
+func init() {
+	gin.SetMode(gin.ReleaseMode)
+}
+
 type response struct {
 	ID       int    `json:"id"`
 	Response string `json:"response"`
