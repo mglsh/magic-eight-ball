@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	gin.SetMode(gin.ReleaseMode)
+	//gin.SetMode(gin.ReleaseMode)
 }
 
 type response struct {
@@ -43,7 +43,14 @@ var responses = []response{
 }
 
 func main() {
-	router := gin.Default()
+	//router := gin.Default()
+	router := gin.New()
+
+	router.Use(gin.Logger())
+	router.Use(gin.Recovery())
+
+	router.SetTrustedProxies(nil)
+
 	router.GET("/answers", getAllAnswers)
 	router.GET("/answer", getRandomAnswer)
 	router.GET("/", getTest)
@@ -68,5 +75,5 @@ func getRandomAnswer(c *gin.Context) {
 }
 
 func getTest(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, "fgh")
+	c.IndentedJSON(http.StatusOK, "Test_c")
 }
